@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
-
+  
   variavel_lista_nome = [];
   variavel_lista_preco = [];
   texto: string = "";
