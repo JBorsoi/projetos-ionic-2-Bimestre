@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class HomePage {
 
+
   constructor(private storage:Storage) {
     this.storage.create();
   }
