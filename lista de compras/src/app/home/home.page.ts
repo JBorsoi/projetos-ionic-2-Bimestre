@@ -26,7 +26,7 @@ export class HomePage {
   async adiciona() {
     if (!(this.texto == "" || this.preco == 0)) {
       //this.variavel_lista.push("0", this.texto);
-      this.soma();
+      //this.soma();
       this.variavel_lista.forEach(item => {
         if(parseInt(item[0]) > this.aux) {
           this.aux = parseInt(item[0]);
@@ -49,21 +49,23 @@ export class HomePage {
 
   }
 
-  soma(){
-    this.total = (+this.total) + (+this.preco);
+  soma(preco){
+    this.total = (+this.total) + (+preco);
   }
 
   atualizaLista() {
     this.variavel_lista = [];
+    this.total = 0;
     this.storage.forEach((value, key, index) => {
       this.variavel_lista.push([key, value]);
+      this.soma(value[1]);
     })
   }
 
   async remove(indice) {
     //this.variavel_lista.splice(indice, 1)
-    this.total = this.total - parseInt(this.variavel_lista[indice][1][1]);
     await this.storage.remove(indice);
+    //this.total = this.total - parseFloat(this.variavel_lista[indice][indice][indice]);
     this.atualizaLista();
   }
 

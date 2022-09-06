@@ -5,13 +5,11 @@
         <ion-col size="5">
           <ion-item>
             <ion-input placeholder="Nome de um produto" [(ngModel)]="texto" (keyup.enter)="adiciona()"></ion-input>
-
           </ion-item>
         </ion-col>
         <ion-col size="4">
           <ion-item>
             <ion-input placeholder="Preco" [(ngModel)]="preco" (keyup.enter)="adiciona()"></ion-input>
-
           </ion-item>
         </ion-col>
         <ion-col size="3">
@@ -44,11 +42,10 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <h5>{{total}}</h5>
+            Total: {{total}}
           </ion-item>
         </ion-col>
       </ion-row>
     </ion-grid>
-
   </div>
 </ion-content>
