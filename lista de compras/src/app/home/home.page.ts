@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-
   constructor(private storage:Storage, private router:Router) {
     this.storage.create();
   }
