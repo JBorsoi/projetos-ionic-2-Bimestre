@@ -14,12 +14,15 @@ export class HomePage {
     this.storage.create();
   }
 
-
   variavel_lista = [];
   texto: string = "";
   preco: number = 0;
   total: number = 0;
   aux = 0;
+  
+  ngOnInit(){
+    this.atualizaLista();
+  }
 
   async adiciona() {
     if (!(this.texto == "" || this.preco == 0)) {
