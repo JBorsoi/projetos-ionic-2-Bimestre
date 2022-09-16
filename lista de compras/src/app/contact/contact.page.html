@@ -13,7 +13,7 @@
       <ion-row>
          <ion-col size="9">
           <ion-item>
-            <ion-input placeholder="Nome da Lista" [(ngModel)]="texto" (keyup.enter)="adiciona()"></ion-input>
+            <ion-input placeholder="Nome da Lista" [(ngModel)]="texto_c" (keyup.enter)="adiciona()"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col size="3">
@@ -24,14 +24,14 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-item *ngFor = "let elemento_da_lista of variavel_lista_n; index as i">
+          <ion-item *ngFor = "let elemento_da_lista_n of variavel_lista_n; index as i">
             <ion-grid>
               <ion-row>
                 <ion-col size="5">
                   {{elemento_da_lista_n}}
                 </ion-col>
                 <ion-col size="4">
-                  {{elemento_da_lista_p[i]}}
+                  {{variavel_lista_p[i]}}
                 </ion-col>
                 <ion-col size="3">
                   <ion-button id="botao6" (click)="remove(i)">
