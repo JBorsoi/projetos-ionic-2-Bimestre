@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -68,12 +68,7 @@ export class HomePage {
   }
 
   mudarPagina(){
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        special: JSON.stringify(this.total)
-      }
-    };
-    this.router.navigate(['contact'], navigationExtras)
+    this.router.navigate(['contact'])
   }
 
   //*ngFor = "let elemento_da_lista of minhaLista" no item
