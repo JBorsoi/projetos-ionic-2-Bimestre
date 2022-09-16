@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -9,46 +8,36 @@ import { Router } from '@angular/router';
 })
 export class ContactPage {
 
-  constructor(private storage:Storage, private router:Router) {
-
+  constructor(private router:Router, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      if (params && params.special) {
+        this.data = JSON.parse(params.special);
+      }
+    });
   }
 
-  variavel_lista = [];
+  variavel_lista_n = [];
   variavel_lista_p = [];
-  texto: string = "";
-  preco: number = 0;
-  total: number = 0;
-
+  texto_c: string = "";
+  preco_c: number = 0;
+  data: any;
+  
 
    adiciona() {
-    (!(this.texto == ""))
-      this.atualizaLista();
-      this.variavel_lista.push("0", this.texto);
-      this.variavel_lista_p.push(this.preco);
-      this.texto = "";
+    if (!(this.texto_c == "")) 
+      this.preco_c = this.data
+      this.variavel_lista_n.push(this.texto_c);
+      this.variavel_lista_p.push(this.preco_c);
+      this.texto_c = "";
 
     }
-
-    soma(preco){
-      this.total = (+this.total) + (+preco);
-    }
-
-    atualizaLista() {
-      this.variavel_lista = [];
-      this.total = 0;
-      this.storage.forEach((value, key, index) => {
-        this.variavel_lista.push([key, value]);
-        this.soma(value[1]);
-      })
-    }
-
-
 
 
   remove(indice) {
-    this.variavel_lista.splice(indice, 1)
-
+    this.variavel_lista_n.splice(indice, 1)
+    this.variavel_lista_p.splice(indice, 1);
   }
+
 
 
   voltarPagina(){

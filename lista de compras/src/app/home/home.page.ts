@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 
 @Component({
@@ -14,12 +14,15 @@ export class HomePage {
     this.storage.create();
   }
 
-
   variavel_lista = [];
   texto: string = "";
   preco: number = 0;
   total: number = 0;
   aux = 0;
+  
+  ngOnInit(){
+    this.atualizaLista();
+  }
 
   async adiciona() {
     if (!(this.texto == "" || this.preco == 0)) {
@@ -68,7 +71,12 @@ export class HomePage {
   }
 
   mudarPagina(){
-    this.router.navigate(['contact'])
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(this.total)
+      }
+    };
+    this.router.navigate(['contact'], navigationExtras)
   }
 
   //*ngFor = "let elemento_da_lista of minhaLista" no item
